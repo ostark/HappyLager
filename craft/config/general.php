@@ -1,23 +1,33 @@
 <?php
-
 /**
  * General Configuration
  *
- * All of your system's general configuration settings go in here.
- * You can see a list of the default settings in craft/app/etc/config/defaults/general.php
+ * All of your system's general configuration settings go in here. You can see a
+ * list of the available settings in vendor/craftcms/cms/src/config/GeneralConfig.php.
  */
 
-return array(
-	'*' => array(
-		'devMode' => true,
-		'environmentVariables' => array(
-			'assetsBaseUrl' => '/assets',
-			'assetsBasePath' => './assets',
-		)
-	),
+return [
+    // Base site URL
+    'siteUrl' => null,
 
-	// Give CodeKit a custom site URL
-	'.local' => array(
-		'siteUrl' => "http://{$_SERVER['SERVER_NAME']}/",
-	)
-);
+    // Default Week Start Day (0 = Sunday, 1 = Monday...)
+    'defaultWeekStartDay' => 0,
+
+    // Enable CSRF Protection (recommended, will be enabled by default in Craft 3)
+    'enableCsrfProtection' => true,
+
+    // Whether "index.php" should be visible in URLs (true, false, "auto")
+    'omitScriptNameInUrls' => true,
+
+    // Control Panel trigger word
+    'cpTrigger' => 'admin',
+
+    // Dev Mode (see https://craftcms.com/support/dev-mode)
+    'devMode' => getenv('CRAFT_DEV_MODE') == '1' ? true : false,
+
+    
+    // (was environmentVariables.assetsBaseUrl in Craft 2)
+    'assetsBaseUrl' => '/assets',
+    'assetsBasePath' => './assets',
+
+];
