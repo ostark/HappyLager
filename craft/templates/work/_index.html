@@ -17,7 +17,7 @@
 	{% include "_includes/index_heading" %}
 
 	{# Loop through all of the Work section entries #}
-	{% for workEntry in craft.entries.section('work') %}
+	{% for workEntry in craft.entries.section('work').all() %}
 
 		{# We give special treatment to the latest work entry #}
 		{% if loop.first %}

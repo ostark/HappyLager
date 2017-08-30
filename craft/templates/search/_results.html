@@ -15,8 +15,8 @@
 {% extends "_layouts/site" %}
 
 {# Get the requested search term and find the matching entries #}
-{% set searchTerm = craft.request.getParam('q') %}
-{% set searchResults = craft.entries.search(searchTerm).order('score') %}
+{% set searchTerm = craft.app.request.getParam('q') %}
+{% set searchResults = craft.entries.search(searchTerm).orderBy('score') %}
 
 {% block main %}
 	<header class="alt2">
